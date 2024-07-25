@@ -20,6 +20,14 @@
 **/
 /* }}} */
 
+#ifdef HAVE_CONFIG_H
+#include "config.h"
+#endif
+
+#ifndef LDID_VERSION
+#define LDID_VERSION VERSION
+#endif
+
 #include <algorithm>
 #include <cstdio>
 #include <cstdlib>
@@ -35,7 +43,11 @@
 #include <dirent.h>
 #include <errno.h>
 #include <fcntl.h>
+#ifdef HAVE_REGEX_H
 #include <regex.h>
+#else
+#include <pcreposix.h>
+#endif
 #include <stdbool.h>
 #include <stdint.h>
 #include <unistd.h>
